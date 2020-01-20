@@ -6,7 +6,7 @@ class Database:
     def __init__(self):
         self.dir_path = os.path.dirname(os.path.realpath(__file__))
         with open(f'{self.dir_path}/../data/bookmarks.yaml', 'r') as stream:
-            self.data = yaml.load(stream)
+            self.data = yaml.safe_load(stream)
 
     def write_to_bookmarks(self, linkTag, link):
         self.data[linkTag] = link
