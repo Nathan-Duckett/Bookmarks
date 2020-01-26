@@ -26,6 +26,13 @@ class Database:
            
         return list
     
+    def get_all_links(self):
+        return [
+            [k, v]
+            for k, v in self.data.items()
+        ]
+        
+    
     def delete_bookmark(self, linkTag):
         self.data.popitem(linkTag)
         self.update_data_file()
