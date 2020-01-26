@@ -18,6 +18,8 @@ class Bookmarks:
             self.process_list_names()
         elif action == 'list-links':
             self.process_list_full()
+        elif action == 'show':
+            self.process_show()
         elif action == 'delete':
             self.process_delete()
         else:
@@ -55,6 +57,14 @@ class Bookmarks:
         self.logger.info("Printed all bookmark names and links")
         return
     
+    def process_show(self):
+        assert len(sys.argv) == 3
+        data = self.data.get_all_links()
+        index = sys.argv[2]
+        print(f"{data[index][0]}:{data[index][1]")
+        self.logger.info(f"Printed bookmark at index [{index}]")
+        return
+                                  
     def process_delete(self):
         assert len(sys.argv) == 3
 
