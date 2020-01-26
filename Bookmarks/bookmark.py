@@ -61,7 +61,7 @@ class Bookmarks:
         assert len(sys.argv) == 3
         data = self.data.get_all_links()
         index = sys.argv[2]
-        print(f"{data[index][0]}:{data[index][1]")
+        print(f"{data[index][0]}:{data[index][1]}")
         self.logger.info(f"Printed bookmark at index [{index}]")
         return
                                   
