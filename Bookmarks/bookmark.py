@@ -14,6 +14,8 @@ class Bookmarks:
             self.process_add()
         elif action == 'load':
             self.process_load()
+        elif action == 'list':
+            self.process_list()
         elif action == 'delete':
             self.process_delete()
         else:
@@ -35,6 +37,12 @@ class Bookmarks:
 
         return
 
+    def process_list(self):
+        assert len(sys.argv) == 2
+        print(self.data.get_all_names())
+        self.logger.info("Printed all bookmark names")
+        return
+    
     def process_delete(self):
         assert len(sys.argv) == 3
 
