@@ -60,7 +60,10 @@ class Bookmarks:
     def process_show(self):
         assert len(sys.argv) == 3
         data = self.data.get_all_links()
-        index = sys.argv[2]
+        try:
+            index = int(sys.argv[2])
+        except:
+            self.logger.error(f"Error converting {sys.argv[2]} into an integer")
         print(f"{data[index][0]}:{data[index][1]}")
         self.logger.info(f"Printed bookmark at index [{index}]")
         return
