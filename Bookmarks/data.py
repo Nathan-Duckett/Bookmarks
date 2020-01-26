@@ -19,6 +19,13 @@ class Database:
     def get_bookmark(self, linkTag):
         return self.data[linkTag]
 
+    def get_all_names(self):
+        list = []
+        for k in self.data:
+            list.append(k)
+           
+        return list
+    
     def delete_bookmark(self, linkTag):
         self.data.popitem(linkTag)
         self.update_data_file()
