@@ -1,4 +1,5 @@
 import data
+import hotlinks
 import logging
 import sys
 import webbrowser
@@ -8,6 +9,7 @@ class Bookmarks:
     def __init__(self):
         self.logger = logging.getLogger('bookmarks')
         self.data = data.Database()
+        self.hotlinks = hotlinks.Hotlinks()
         action = sys.argv[1]
 
         if action == 'add':
@@ -22,6 +24,8 @@ class Bookmarks:
             self.process_show()
         elif action == 'delete':
             self.process_delete()
+        elif action == 'hl':
+            self.process_hotlink()
         else:
             self.logger.warning(f"Invalid action passed by user: {action}")
 
@@ -75,6 +79,27 @@ class Bookmarks:
         self.logger.info(f"Deleting link {sys.argv[2]}")
 
         return
+    
+    def process_hotlink(self):
+        assert len(sys.argv) >= 3
+        
+        action = sys.argv[2]
+        
+        if action == 'clear':
+            self.hotlinks.clear_links()
+        elif action == 'get_all':
+            self.print_links(self.hotlinks.get_all())
+        elif action == 'get':
+            self.print_links(self.hotlinks.get_link(sys.argv[3]))
+        elif action == 'remove':
+            self.hotlinks.remove_link(sys.argv[3])           
+        elif action == 'add':
+            self.hotlinks.add_link(sys.argv[3])
+        else:
+            print("Invalid hotlink action")
+            
+        return
+        
 
 
 if __name__ == "__main__":
