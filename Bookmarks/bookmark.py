@@ -100,7 +100,10 @@ class Bookmarks:
             
         return
         
-
+    def print_links(self, links):
+        for link in links:
+            print(link)
+        return
 
 if __name__ == "__main__":
     if len(sys.argv) <= 1:
