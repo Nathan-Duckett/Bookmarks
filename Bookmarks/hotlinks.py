@@ -13,15 +13,15 @@ class Hotlinks:
   
   def get_link(self, index):
     # Request specific link
-    return requests.get(f"{self.endpoint}/get/{index}").json()
+    return requests.get(f"{self.endpoint}/get/{index}").text
     
   def clear_links(self):
     # Request clear all links
-    return requests.get(f"{self.endpoint}/clear").json()
+    return requests.get(f"{self.endpoint}/clear").text
     
   def remove_link(self, index):
     # Request delete specific link
-    return requests.get(f"{self.endpoint}/remove/{index}").json()
+    return requests.get(f"{self.endpoint}/remove/{index}").text
     
   def add_link(self, link_addr):
     # Request add link
