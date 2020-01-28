@@ -90,7 +90,7 @@ class Bookmarks:
         elif action == 'get_all':
             self.print_links(self.hotlinks.get_all())
         elif action == 'get':
-            self.print_links(self.hotlinks.get_link(sys.argv[3]))
+            self.print_links([self.hotlinks.get_link(sys.argv[3])])
         elif action == 'remove':
             self.hotlinks.remove_link(sys.argv[3])           
         elif action == 'add':
