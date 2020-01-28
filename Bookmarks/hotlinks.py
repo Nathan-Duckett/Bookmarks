@@ -5,7 +5,7 @@ class Hotlinks:
   
   def __init__(self):
     self.logger = logging.getLogger('bookmarks')
-    self.endpoint = "http://localhost"
+    self.endpoint = "http://localhost:3000"
     
   def get_all(self):
     # Request all links
